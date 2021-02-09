@@ -1,0 +1,28 @@
+export const lightTheme = {
+    bodyBg: '#ffffff',
+    bodyColor: '#424242',
+    primaryColor: '#1877f2',
+    secondaryColor: '#6c757d',
+    successColor: '#198754',
+    warningColor: '#ff9800',
+    dangerColor: '#dc3545',
+    infoColor: '#dcffde',
+    darkColor: '#424242',
+    whiteColor: '#ffffff',
+    lightColor: '#e4e6eb',
+    linkColor: '#0d6efd',
+};
+export const darkTheme = {
+    bodyBg: '#424242',
+    bodyColor: '#ffffff',
+    primaryColor: '#1877f2',
+    secondaryColor: '#6c757d',
+    successColor: '#198754',
+    warningColor: '#ff9800',
+    dangerColor: '#dc3545',
+    infoColor: '#dcffde',
+    darkColor: '#424242',
+    whiteColor: '#ffffff',
+    lightColor: '#e4e6eb',
+    linkColor: '#0d6efd',
+};
