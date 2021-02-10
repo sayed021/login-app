@@ -1,25 +1,13 @@
-import { useState } from "react";
+import react, { useState } from 'react';
+import { Button, ButtonPrimary, ButtonPrimaryRounded } from "../components/atoms/Buttons";
+import { H1, H2, H3, H4, H5, H6 } from "../components/atoms/Headings";
+import { Input, Label } from "../components/atoms/FormControls";
+import { FormGroup } from "../components/molecules";
 
-import { Button, ButtonPrimary, ButtonPrimaryRounded } from "./components/atoms/Buttons";
-import { H1, H2, H3, H4, H5, H6 } from "./components/atoms/Headings";
-import { FormGroup, Input, Label } from "./components/atoms/FormControls";
-
-import { ThemeProvider } from "styled-components";
-import { lightTheme, darkTheme } from './Global/Theme';
-import { GlobalStyles } from "./Global/Theme/GlobalStyle";
-
-function App() {
-
-  const [_lightTheme, setLightTheme ] = useState(true);
-
-  return (
-    <ThemeProvider theme={_lightTheme? lightTheme : darkTheme } >
-
-      <Button onClick={()=>setLightTheme(!_lightTheme)}>
-        {_lightTheme? 'Dark Theme':'Light theme' }
-      </Button>
-
-      <GlobalStyles />
+const TestPage = props => {
+    const [_lightTheme, setLightTheme ] = useState(true);
+    return (
+        <>      
       <H1>This is first heading</H1>
       <H2>This is first heading</H2>
       <H3>This is first heading</H3>
@@ -67,10 +55,9 @@ function App() {
       <ButtonPrimaryRounded className='myclass' onClick={()=>alert('hello')}>
         Button <pre><code>ButtonPrimaryRounded</code></pre>
       </ButtonPrimaryRounded>
-
-
-    </ThemeProvider>
-  );
+      </>
+    )
 }
 
-export default App;
+
+export default TestPage;

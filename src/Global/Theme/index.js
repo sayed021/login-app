@@ -1,5 +1,5 @@
 export const lightTheme = {
-    bodyBg: '#ffffff',
+    bodyBg: '#f0f2f5',
     bodyColor: '#424242',
     primaryColor: '#1877f2',
     secondaryColor: '#6c757d',
@@ -11,7 +11,9 @@ export const lightTheme = {
     whiteColor: '#ffffff',
     lightColor: '#e4e6eb',
     linkColor: '#0d6efd',
+    cardShadow: '#000000'
 };
+
 export const darkTheme = {
     bodyBg: '#424242',
     bodyColor: '#ffffff',
@@ -25,4 +27,5 @@ export const darkTheme = {
     whiteColor: '#ffffff',
     lightColor: '#e4e6eb',
     linkColor: '#0d6efd',
+    cardShadow: '#000000',
 };

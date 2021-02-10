@@ -8,7 +8,8 @@ const Input = styled.input `
             return '#fff'
         }
     }};
-    border: 2px solid ${props => {
+    
+    border: 1px solid ${props => {
         if(props.error){
             return '#f00'
         }
@@ -20,16 +21,29 @@ const Input = styled.input `
         }
         
         else {
-            return '#999'
+            return '#dddfe2'
         }
     }};
 
-    height: 42px;
     width: 100%;
     display: block;
     padding: 0 15px;
     border-radius: 5px;
-    opacity: ${props=> props.readOnly? '0.5': '' }
+    outline: 0;
+    opacity: ${props=> props.readOnly? '0.5': '1' };
+
+    font-size: 17px;
+    font-width: 500;
+    padding: 14px 16px;
+
+    &:focus {
+        border-color: #1877f2;
+        box-shadow: 0 0 0 2px #e7f3ff;
+    }
+
+    &::placeholder {
+        opacity: 0.7;
+    }
 `
 
 export default Input;
