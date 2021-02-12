@@ -15,7 +15,7 @@ import {Login} from './PublicLayout';
 function App() {
   return (
     <ThemeProvider theme={lightTheme } >
-        <GlobalStyles />
+        <GlobalStyles />        
         <Login />
         {/* <TestPage /> */}
     </ThemeProvider>
