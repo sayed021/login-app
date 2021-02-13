@@ -12,9 +12,10 @@ import { ModalTitle } from '../../../components/molecules/Modal/ModalTitle';
 import { FormGroup } from '../../../components/molecules';
 import { Separator } from '../../../components/atoms';
 import { ButtonSuccessLink } from '../../../components/atoms/Buttons';
+import RegristronForm from '../Regristration';
+
 
 const Login = props => {
-
 
     const [showModal, setshowModal] = useState(false);
 
@@ -38,15 +39,15 @@ const Login = props => {
 
                 <FormGroup noGap>
                     <CenterText>
+
                         <ButtonSuccessLink onClick={(e)=> setshowModal(!showModal) }>
                             Create New Account
-                        </ButtonSuccessLink> 
+                        </ButtonSuccessLink>
+
                     </CenterText>
                 </FormGroup>
             </LoginCard>
-            
         </LoginWrap>
-
 
         <Modal 
             show={showModal}
@@ -56,10 +57,8 @@ const Login = props => {
                 <H4 className="mb-0">Sign Up</H4>
                 <p>It's quick and easy.</p>
             </ModalTitle>
-            <H1>Regristration form</H1>
-            <p>Officia nulla ea nulla laborum deserunt eu cupidatat incididunt elit voluptate. Nulla ea cupidatat cillum proident qui minim elit id excepteur dolore cupidatat ad veniam. Consequat aute voluptate ullamco fugiat mollit culpa in incididunt consequat tempor minim non qui irure.</p>
-            <p>Officia nulla ea nulla laborum deserunt eu cupidatat incididunt elit voluptate. Nulla ea cupidatat cillum proident qui minim elit id excepteur dolore cupidatat ad veniam. Consequat aute voluptate ullamco fugiat mollit culpa in incididunt consequat tempor minim non qui irure.</p>
-        
+
+            <RegristronForm />
         </Modal>
         </>
     )

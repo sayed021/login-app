@@ -4,8 +4,16 @@ const LoginWrap = styled.div `
     align-items: center;
     justify-content: center;
     width: 100%;
-    min-height: 90vh;
     flex-wrap: wrap;
+    padding: 20px;
+
+    @media screen and (min-width: 1024px) {
+        min-height: 90vh;
+    }
+    
+    @media screen and (max-width: 1023px) {
+        flex-direction: column
+    }
 `
 
 const ContentCard = styled.div `
@@ -26,12 +34,12 @@ const LoginCard = styled.div `
     box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
     margin: 40px 0 0;
     padding: 20px 15px 28px;
-    width: 450px;
+    width: 100%;
+    max-width: 450px;
     @media screen and (max-width: 768px) {
         width: 100%;
-        margin: 15px;
     }
-}    
+}
 `
 export {
     LoginWrap,
