@@ -6,6 +6,8 @@ import {
     Redirect,
   } from "react-router-dom";
 
+import { createBrowserHistory } from "history";
+
 import PrivateRoute from '../services/PrivateRoute';
 import PublicRoute from '../services/PublicRoute';
 
@@ -15,37 +17,31 @@ import TestPage from '../Layouts/testpage';
 import Profile from '../Layouts/PrivateLayout/Profile';
 
 
-
-
-let logedIn = false;
-
 const Routes = props => {
-
     return(
-        <Router>
-
+        <Router >
             <Switch>
 
-                <PublicRoute exact  path='/login'>
-                    {logedIn? <Redirect to="/test-page" /> : <Login /> }
+                <PublicRoute  path='/login'>
+                    <Login />
                 </PublicRoute>
 
-                <PrivateRoute exact path="/profile:id">
+                <PrivateRoute  path="/profile:id">
                     <Profile />
                 </PrivateRoute>
 
-                <Route exact path='/test-page' component={TestPage} />
-                
-                <Route exact path="/error">
+                <PrivateRoute  path="/test-page">
+                    <TestPage />
+                </PrivateRoute>
+
+                <Route path="/error">
                     <NotFound />
                 </Route>
-
-                <Route to="/">
-                    {
-                        logedIn?  <Redirect to="/test-page" /> : <Redirect to="/login" />
-                    }
-                </Route>
-
+                
+                <PublicRoute path="/">
+                    <h1>Landing page</h1>
+                </PublicRoute>
+                
                 <Route>
                     <Redirect to="/error" />
                 </Route>

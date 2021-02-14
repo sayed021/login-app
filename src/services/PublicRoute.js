@@ -3,8 +3,8 @@ import { Route, Redirect } from "react-router-dom";
 
 export default function PublicRoute({ children, ...rest }) {
 
-    const isLoggedIn = false;
 
+    const isLoggedIn =JSON.parse(sessionStorage.getItem('BDBOOK_LOGEDIN'));
     return (
       <Route
         {...rest}
@@ -12,10 +12,10 @@ export default function PublicRoute({ children, ...rest }) {
             isLoggedIn ? (
             <Redirect
                 to={{
-                  pathname: "/",
+                  pathname: "/profile:1",
                   state: { from: location }
                 }}
-              />
+            />
           ) : (
             children
           )
