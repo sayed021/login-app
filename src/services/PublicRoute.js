@@ -12,7 +12,7 @@ export default function PublicRoute({ children, ...rest }) {
             isLoggedIn ? (
             <Redirect
                 to={{
-                  pathname: "/profile:1",
+                  pathname: "/profile",
                   state: { from: location }
                 }}
             />

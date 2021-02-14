@@ -26,7 +26,7 @@ const Routes = props => {
                     <Login />
                 </PublicRoute>
 
-                <PrivateRoute  path="/profile:id">
+                <PrivateRoute  path="/profile">
                     <Profile />
                 </PrivateRoute>
 
@@ -39,7 +39,7 @@ const Routes = props => {
                 </Route>
                 
                 <PublicRoute path="/">
-                    <h1>Landing page</h1>
+                    <Redirect to="/login" />
                 </PublicRoute>
                 
                 <Route>
