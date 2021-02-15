@@ -7,14 +7,19 @@ import TestPage from './testpage';
 import {Login} from './PublicLayout';
 
 import Routes from '../Routes';
+import { Provider } from "react-redux";
+
+import {store} from '../Store/configureStore'
 
 function App() {
   return (
-    <ThemeProvider theme={lightTheme } >
-        <GlobalStyles />        
-        <Routes />
-        {/* <TestPage /> */}
-    </ThemeProvider>
+    <Provider store={store}>
+      <ThemeProvider theme={lightTheme } >
+          <GlobalStyles />        
+          <Routes />
+          {/* <TestPage /> */}
+      </ThemeProvider>
+    </Provider>
   );
 }
 
