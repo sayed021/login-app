@@ -13,6 +13,7 @@ import { FormGroup } from '../../../components/molecules';
 import { Separator } from '../../../components/atoms';
 import { ButtonSuccessLink } from '../../../components/atoms/Buttons';
 import RegristronForm from '../Regristration';
+import { connect } from 'react-redux';
 
 
 const Login = props => {
@@ -64,5 +65,12 @@ const Login = props => {
     )
 }
 
-export default Login;
+// const mapStateToProps = state => {
+//     return {
+//       logedIn: state.logedIn
+//     }
+//   }
+
+
+export default Login
 

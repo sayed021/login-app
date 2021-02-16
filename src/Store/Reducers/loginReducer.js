@@ -5,7 +5,7 @@ import {
 } from "../Constants/loginConstants";
 
 const loginState = {
-    token:null,
+    logegIn:false,
     // logInLoading:false,
     // logInError:false,
     // logInSuccess: false,
@@ -17,7 +17,7 @@ export const LoginReducer = (state = loginState, action) => {
       case LOGIN_USER:
           alert('this is login reducer call');
           
-        return [...state,{ token: '25487'}];
+        return [...state,{ logegIn: '25487'}];
 
       default:
         return state;
