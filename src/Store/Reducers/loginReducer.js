@@ -5,19 +5,21 @@ import {
 } from "../Constants/loginConstants";
 
 const loginState = {
-    logegIn:false,
-    // logInLoading:false,
-    // logInError:false,
-    // logInSuccess: false,
+  login: false,
+  loginError: false,
+  loginSuccess: false,
 }
 
 export const LoginReducer = (state = loginState, action) => {
     switch(action.type) {
-
       case LOGIN_USER:
-          alert('this is login reducer call');
-          
-        return [...state,{ logegIn: '25487'}];
+        console.log('payload: ', action.payload);
+        state.loginError = false;
+        state.loginSuccess = true;
+        state.login = true;
+        return {...state, login:true}
+        break;
+        
 
       default:
         return state;

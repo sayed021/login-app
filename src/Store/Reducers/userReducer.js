@@ -1,12 +1,5 @@
 
-const initialUser = {
-    name: 'Abu Sayed',
-    age: '25',
-    userName: 'sayed021'
-}
-
-
-export const userReducer = (state = initialUser, action) => {
+export const userReducer = (state=null, action) => {
     switch(action.type) {
 
       case 'GET_USER':

@@ -7,9 +7,15 @@ import { ButtonPrimary, ButtonSuccessLink } from '../../../components/atoms/Butt
 import { FormGroup } from '../../../components/molecules';
 import { CenterText } from './pertial';
 import { Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { usrLogin } from '../../../Store/Actions/loginAction';
 
 
-const LoginForm = () => {
+const LoginForm = props => {
+    console.log("my props", props);
+
+    const { usrLogin } = props;
+
     const [redirected, setRedirected] = useState();
 
     if (redirected) {
@@ -32,7 +38,7 @@ const LoginForm = () => {
             </FormGroup>
 
             <FormGroup>
-                <ButtonPrimary type="submit" fluid>
+                <ButtonPrimary type="button" onClick={()=>usrLogin({name: 'sayed', password:1234})} fluid>
                     Login
                 </ButtonPrimary>
             </FormGroup>
@@ -44,4 +50,21 @@ const LoginForm = () => {
     );
 }
 
-export default LoginForm;
+
+const mapStateToProps = (state) => {
+    console.log(state, 'my state')
+
+    return {
+        login: state
+    }
+}
+const mapDispatchToProps = (dispatch) => {
+    console.log("dispatch ", dispatch )
+    return {
+        usrLogin:(user) => dispatch(usrLogin(user))
+    }
+}
+
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(LoginForm);

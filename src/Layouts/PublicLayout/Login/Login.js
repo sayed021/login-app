@@ -1,4 +1,5 @@
 import react, { useState } from 'react';
+import { connect } from 'react-redux';
 import { H1, H2, H4 } from '../../../components/atoms/Headings'
 import {
     CenterText,
@@ -13,7 +14,8 @@ import { FormGroup } from '../../../components/molecules';
 import { Separator } from '../../../components/atoms';
 import { ButtonSuccessLink } from '../../../components/atoms/Buttons';
 import RegristronForm from '../Regristration';
-import { connect } from 'react-redux';
+
+import { usrLogin } from '../../../Store/Actions/loginAction';
 
 
 const Login = props => {
@@ -65,12 +67,6 @@ const Login = props => {
     )
 }
 
-// const mapStateToProps = state => {
-//     return {
-//       logedIn: state.logedIn
-//     }
-//   }
 
-
-export default Login
+export default  Login
 
