@@ -5,21 +5,37 @@ import {
 } from "../Constants/loginConstants";
 
 const loginState = {
-  login: false,
+  logegIn: false,
   loginError: false,
   loginSuccess: false,
+  loginLoading: false
 }
 
 export const LoginReducer = (state = loginState, action) => {
     switch(action.type) {
+
       case LOGIN_USER:
-        console.log('payload: ', action.payload);
+
+        state.loginError = false;
+        state.loginSuccess = false;
+        state.loginLoading = true;
+        state.logegIn = false;
+
+        return {...state}   
+
+      case LOGIN_SUCCESS:
         state.loginError = false;
         state.loginSuccess = true;
-        state.login = true;
-        return {...state, login:true}
-        break;
-        
+        state.loginLoading = false;
+        state.logegIn = true;
+        return {...state }
+
+      case LOGIN_ERROR:
+        state.loginError = true;
+        state.loginSuccess = false;
+        state.loginLoading = false;
+        state.logegIn = false;
+        return {...state }        
 
       default:
         return state;

@@ -9,37 +9,61 @@ import { CenterText } from './pertial';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { usrLogin } from '../../../Store/Actions/loginAction';
+import styled from 'styled-components';
 
-
+const ErrorMessage = styled.div `
+    background: rgba(0,0,0,0.6);
+    color: red;
+    padding: 10px 15px;
+`
 const LoginForm = props => {
-    console.log("my props", props);
 
-    const { usrLogin } = props;
+    const {login, usrLogin } = props;
 
-    const [redirected, setRedirected] = useState();
+    const [user, setUser] = useState({
+        userName:'',
+        password: ''
+    });
 
-    if (redirected) {
+    if (login?.logegIn) {
         return <Redirect to='/profile' />
     }
 
     const submitForm = e => {
-        sessionStorage.setItem('BDBOOK_LOGEDIN', true);
-        setRedirected(true);
+        e.preventDefault();
+        usrLogin(user);
     }
 
     return (
         <form onSubmit={(e)=>submitForm(e) }>
+           {
+            login.loginError? (
+                    <ErrorMessage>
+                        Login error
+                    </ErrorMessage>
+            ):''
+           } 
             <FormGroup>
-                <Input type="email" name="eamil" placeholder="Email address or phone number" />
+                <Input 
+                    type="text"
+                    name="userName" 
+                    onChange={(e)=>setUser({...user, userName : e.target.value})}
+                    value={user?.userName||''} 
+                    placeholder="Email address or phone number" />
             </FormGroup>
 
             <FormGroup>
-                <Input type="email" name="eamil" placeholder="Password" />
+                <Input
+                    type="password" 
+                    name="Password" 
+                    onChange={(e)=>setUser({...user, password : e.target.value})}
+                    value={user?.password||''} 
+                    placeholder="Password" />
             </FormGroup>
 
             <FormGroup>
-                <ButtonPrimary type="button" onClick={()=>usrLogin({name: 'sayed', password:1234})} fluid>
-                    Login
+                <ButtonPrimary type="submit" onClick={(e)=>submitForm(e)} fluid>
+                {!login.loginLoading? 'Login' : 'Loading...' }
                 </ButtonPrimary>
             </FormGroup>
 
@@ -52,14 +76,13 @@ const LoginForm = props => {
 
 
 const mapStateToProps = (state) => {
-    console.log(state, 'my state')
 
     return {
-        login: state
+        login: state.login,
     }
 }
+
 const mapDispatchToProps = (dispatch) => {
-    console.log("dispatch ", dispatch )
     return {
         usrLogin:(user) => dispatch(usrLogin(user))
     }

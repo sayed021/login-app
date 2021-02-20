@@ -1,13 +1,12 @@
 import React from 'react'
 import { Route, Redirect } from "react-router-dom";
+import { TOKEN_KEY } from './auth';
 
 export default function PrivateRoute({ children, ...rest }) {
 
-    // condition or api for login token
-    // sessionStorage.setItem("BDBOOK_LOGEDIN", false);
+    const isLoggedIn = sessionStorage.getItem(TOKEN_KEY) && sessionStorage.getItem(TOKEN_KEY) !== null;
 
-
-    const isLoggedIn = JSON.parse(sessionStorage.getItem("BDBOOK_LOGEDIN"));
+    console.log("seasion storage and not null: ", isLoggedIn)
 
     return (
       <Route

@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { H1 } from '../../components/atoms/Headings';
+import { TOKEN_KEY } from '../../services/auth';
 import { CenterText } from '../PublicLayout/Login/pertial';
 
 const WrapperHeader = styled.div `
@@ -13,11 +14,16 @@ const WrapperHeader = styled.div `
     align-items: center;
 `;
 
-const logout=()=> {
-    sessionStorage.setItem('BDBOOK_LOGEDIN', false)
-}
+
 
 const Profile = props => {
+
+    const logout=()=> {
+        sessionStorage.removeItem(TOKEN_KEY);
+        return true;
+        
+    }
+    
     return (
         <>
         <WrapperHeader>
@@ -25,7 +31,7 @@ const Profile = props => {
                 <H1>BDBook</H1>
             </div>
             <div>
-                <a href="#" onClick={()=>logout()}>Logout</a>
+                <a href="/login" onClick={()=>logout()}>Logout</a>
             </div>
         </WrapperHeader>
         <CenterText>
