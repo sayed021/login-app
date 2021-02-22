@@ -15,9 +15,6 @@ import { Separator } from '../../../components/atoms';
 import { ButtonSuccessLink } from '../../../components/atoms/Buttons';
 import RegristronForm from '../Regristration';
 
-import { usrLogin } from '../../../Store/Actions/loginAction';
-
-
 const Login = props => {
 
     const [showModal, setshowModal] = useState(false);

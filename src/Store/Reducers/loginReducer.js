@@ -1,3 +1,5 @@
+import { TOKEN_KEY } from "../../services/auth";
+import { getCookie } from "../../services/cookieService";
 import { 
     LOGIN_USER,
     LOGIN_ERROR,
@@ -5,7 +7,7 @@ import {
 } from "../Constants/loginConstants";
 
 const loginState = {
-  logegIn: false,
+  logegIn: getCookie(TOKEN_KEY),
   loginError: false,
   loginSuccess: false,
   loginLoading: false

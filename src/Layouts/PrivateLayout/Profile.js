@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import { H1 } from '../../components/atoms/Headings';
-import { TOKEN_KEY } from '../../services/auth';
+import { setLoginToken, TOKEN_KEY, logoutService } from '../../services/auth';
+import { logoutServics } from '../../services/cookieService';
 import { CenterText } from '../PublicLayout/Login/pertial';
 
 const WrapperHeader = styled.div `
@@ -19,9 +20,8 @@ const WrapperHeader = styled.div `
 const Profile = props => {
 
     const logout=()=> {
-        sessionStorage.removeItem(TOKEN_KEY);
+        logoutService();
         return true;
-        
     }
     
     return (

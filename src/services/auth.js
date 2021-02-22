@@ -1,3 +1,5 @@
+import { setCookie, removeCookie } from './cookieService';
+
 const axios = require('axios');
 export const TOKEN_KEY = "TOKEN_KEY";
 export const API_BASE_URL = 'http://v2.api.bandhonbd.com/api/ApplicationUser';
@@ -16,7 +18,9 @@ export const login = user => {
 }
 
 export const setLoginToken = token => {
-  sessionStorage.setItem(TOKEN_KEY, token);
+  
+  // TOKEYN KEY, TOKEN, EXPIRE DATE?
+  setCookie(TOKEN_KEY, token, 500);
 }
 
 export const loginUserSuccess = res => {
@@ -25,6 +29,8 @@ export const loginUserSuccess = res => {
   }
 }
 
-export const logout = () => {
-  sessionStorage.removeItem(TOKEN_KEY)
+export const logoutService = () => {
+  // sessionStorage.removeItem(TOKEN_KEY);
+  removeCookie(TOKEN_KEY);
+  return true;
 }

@@ -12,7 +12,7 @@ import { usrLogin } from '../../../Store/Actions/loginAction';
 import styled from 'styled-components';
 
 const ErrorMessage = styled.div `
-    background: rgba(0,0,0,0.6);
+    background: rgb(255 141 141 / 60%);
     color: red;
     padding: 10px 15px;
 `
@@ -64,6 +64,7 @@ const LoginForm = props => {
             <FormGroup>
                 <ButtonPrimary type="submit" onClick={(e)=>submitForm(e)} fluid>
                 {!login.loginLoading? 'Login' : 'Loading...' }
+                {login.loginSuccess?' Successfull':''}
                 </ButtonPrimary>
             </FormGroup>
 
