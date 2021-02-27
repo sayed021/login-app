@@ -4,7 +4,8 @@ import createSagaMiddleware from 'redux-saga'
 
 import createReducer from "./Reducers";
 import { loginSaga } from "./Sagas/loginSaga";
-import  rootSaga  from "./Sagas/rootSaga";
+import  rootSaga  from "./Sagas";
+import { userSaga } from "./Sagas/userSaga";
 // import {rootSaga} from './Sagas/rootSaga';
 
 const sagaMiddleware = createSagaMiddleware();
@@ -22,7 +23,11 @@ export const store = createStore(
     composeEnhancers(applyMiddleware(...middleware), ...enhancers)
 );
 
+// sagaMiddleware.run(loginSaga)
 // run saga ans watch
-sagaMiddleware.run(loginSaga)
-// sagaMiddleware.run(rootSaga)
+// sagaMiddleware.run(rootSaga);
+
+
+sagaMiddleware.run(userSaga)
+
 

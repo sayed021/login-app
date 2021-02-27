@@ -25,7 +25,7 @@ export const setLoginToken = token => {
 
 export const loginUserSuccess = res => {
   if(res.status === 200) {
-    setLoginToken(res.data.token);
+    setLoginToken(res.data.responseObject);
   }
 }
 

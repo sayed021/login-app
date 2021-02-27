@@ -5,7 +5,7 @@ import { login, setLoginToken, loginUserSuccess } from '../../services/auth'
 
 
 // worker Saga: will be fired on USER_FETCH_REQUESTED actions
-function* fetchUser(action) {
+function* loginUser(action) {
 
    try {
 
@@ -24,5 +24,5 @@ function* fetchUser(action) {
 }
 
 export function* loginSaga() {
-    yield takeLatest(LOGIN_USER_ASYNC, fetchUser);
+    yield takeLatest(LOGIN_USER_ASYNC, loginUser);
 }

@@ -2,7 +2,7 @@ import { combineReducers } from "redux";
 
 import { LoginReducer } from "./loginReducer";
 import themeReducer from "./themeReducer";
-import { userReducer } from "./userReducer";
+import userReducer from "./userReducer";
 
 
 export default function createReducer(injectedReducers = {}) {
