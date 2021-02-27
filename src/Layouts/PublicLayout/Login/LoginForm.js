@@ -77,7 +77,6 @@ const LoginForm = props => {
 
 
 const mapStateToProps = (state) => {
-
     return {
         login: state.login,
     }

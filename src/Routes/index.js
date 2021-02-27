@@ -16,10 +16,11 @@ import NotFound from '../Layouts/PublicLayout/NotFound';
 import TestPage from '../Layouts/testpage';
 import Profile from '../Layouts/PrivateLayout/Profile';
 
+const history = createBrowserHistory();
 
 const Routes = props => {
     return(
-        <Router >
+        <Router history={history}>
             <Switch>
 
                 <PublicRoute  path='/login'>

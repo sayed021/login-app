@@ -1,20 +1,26 @@
-import { useState } from "react";
-
+import { useEffect, useState } from "react";
+import { connect } from "react-redux";
 import { ThemeProvider } from "styled-components";
 import { lightTheme, darkTheme } from '../Global/Theme';
 import { GlobalStyles } from "../Global/Theme/GlobalStyle";
-import TestPage from './testpage';
-import {Login} from './PublicLayout';
 import Routes from '../Routes';
 
-function App() {
+
+const App = props => {
+
+  const [theme, settheme] = useState(localStorage.getItem('bdBookTheme'));
+
+  useEffect(() => {
+    console.log(theme);
+  }, [theme]);
+
   return (
-      <ThemeProvider theme={lightTheme } >
+      <ThemeProvider theme={theme == 'dark' ? darkTheme : lightTheme } >
           <GlobalStyles />        
           <Routes />
-          {/* <TestPage /> */}
       </ThemeProvider>
   );
 }
+
 
 export default App;
