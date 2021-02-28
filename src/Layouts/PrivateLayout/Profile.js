@@ -11,7 +11,7 @@ import { logoutServics } from '../../services/cookieService';
 
 
 import { getUser } from '../../Store/Actions/userAction';
-import { CenterText } from '../PublicLayout/Login/pertial';
+import { CenterText } from '../PublicLayout/Login/partial';
 
 const WrapperHeader = styled.div `
     background: #fff;

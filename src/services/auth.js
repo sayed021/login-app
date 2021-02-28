@@ -1,4 +1,4 @@
-import { setCookie, removeCookie } from './cookieService';
+import { setCookie, removeCookie, getCookie } from './cookieService';
 
 const axios = require('axios');
 export const TOKEN_KEY = "TOKEN_KEY";
@@ -6,11 +6,12 @@ export const API_BASE_URL = 'http://v2.api.bandhonbd.com/api/ApplicationUser';
 
 export const isAuthenticated = () => {
   // TODO: improve authentication validation
-  return sessionStorage.getItem(TOKEN_KEY) !== null
+  // return sessionStorage.getItem(TOKEN_KEY) !== null
+  getCookie(TOKEN_KEY);
 }
 
 export const getToken = () => {
-  return sessionStorage.getItem(TOKEN_KEY)
+  return getCookie(TOKEN_KEY);
 }
 
 export const login = user => {
@@ -18,8 +19,6 @@ export const login = user => {
 }
 
 export const setLoginToken = token => {
-  
-  // TOKEYN KEY, TOKEN, EXPIRE DATE?
   setCookie(TOKEN_KEY, token, 500);
 }
 
@@ -30,7 +29,6 @@ export const loginUserSuccess = res => {
 }
 
 export const logoutService = () => {
-  // sessionStorage.removeItem(TOKEN_KEY);
   removeCookie(TOKEN_KEY);
   return true;
 }

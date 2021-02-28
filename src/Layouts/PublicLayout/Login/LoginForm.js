@@ -5,7 +5,7 @@ import { Input } from '../../../components/atoms/FormControls';
 import { A } from '../../../components/atoms'
 import { ButtonPrimary, ButtonSuccessLink } from '../../../components/atoms/Buttons'
 import { FormGroup } from '../../../components/molecules';
-import { CenterText } from './pertial';
+import { CenterText } from './partial';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { usrLogin } from '../../../Store/Actions/loginAction';

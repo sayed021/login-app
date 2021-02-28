@@ -6,7 +6,7 @@ import {
     ContentCard,
     LoginCard,
     LoginWrap,
-} from './pertial';
+} from './partial';
 import LoginForm from './LoginForm';
 import Modal from '../../../components/molecules/Modal';
 import { ModalTitle } from '../../../components/molecules/Modal/ModalTitle';

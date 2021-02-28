@@ -5,8 +5,8 @@ import RadioInput from '../../../components/atoms/FormControls/Radio';
 import { Option, Select } from '../../../components/atoms/FormControls/Select/Select';
 import { FormGroup } from '../../../components/molecules';
 import { Col, Col50, Col33, Row } from '../../../components/molecules/Columns';
-import { CenterText } from '../Login/pertial';
-import { SignupWrap } from './pertial';
+import { CenterText } from '../Login/partial';
+import { SignupWrap } from './partial';
 
 
 const RegristronForm = props => {

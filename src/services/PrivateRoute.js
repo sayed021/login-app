@@ -4,11 +4,8 @@ import { TOKEN_KEY } from './auth';
 import { getCookie } from './cookieService';
 
 export default function PrivateRoute({ children, ...rest }) {
-
+  
     const isLoggedIn =  getCookie(TOKEN_KEY);
-
-    console.log("seasion storage and not null: ", isLoggedIn);
-    
 
     return (
       <Route

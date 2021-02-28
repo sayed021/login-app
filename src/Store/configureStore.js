@@ -6,6 +6,8 @@ import createReducer from "./Reducers";
 import { loginSaga } from "./Sagas/loginSaga";
 import  rootSaga  from "./Sagas";
 import { userSaga } from "./Sagas/userSaga";
+import { TOKEN_KEY } from "../services/userServices";
+import { getCookie } from "../services/cookieService";
 // import {rootSaga} from './Sagas/rootSaga';
 
 const sagaMiddleware = createSagaMiddleware();
@@ -25,9 +27,12 @@ export const store = createStore(
 
 // sagaMiddleware.run(loginSaga)
 // run saga ans watch
-// sagaMiddleware.run(rootSaga);
+sagaMiddleware.run(rootSaga);
 
-
-sagaMiddleware.run(userSaga)
+// if(getCookie(TOKEN_KEY)) {
+//   sagaMiddleware.run(userSaga)
+// }else {
+//   sagaMiddleware.run(loginSaga)
+// }
 
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { H1 } from '../../../components/atoms/Headings';
-import { CenterText } from '../Login/pertial';
+import { CenterText } from '../Login/partial';
 
 const NotFound = props => {
     return (

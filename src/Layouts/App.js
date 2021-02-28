@@ -11,7 +11,7 @@ const App = props => {
   const [theme, settheme] = useState(localStorage.getItem('bdBookTheme'));
 
   useEffect(() => {
-    console.log(theme);
+    // console.log(theme);
   }, [theme]);
 
   return (
