@@ -15,7 +15,11 @@ import {userSaga} from "./userSaga";
 // }
 
 export default function* rootSaga() {
-    yield all([loginSaga,userSaga])
+    yield [
+        fork(loginSaga),
+        fork(userSaga)
+    ]
+    
 }
 
 

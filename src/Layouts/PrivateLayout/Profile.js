@@ -1,9 +1,11 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 import { H1 } from '../../components/atoms/Headings';
+import ProfileBanner from '../../components/molecules/ProfileBanner/ProfileBanner';
 import ProfileForm from '../../components/molecules/ProfileForm/ProfileForm';
 import { setLoginToken, TOKEN_KEY, logoutService } from '../../services/auth';
+import { BaseURL, config } from '../../services/config';
 import { logoutServics } from '../../services/cookieService';
 
 
@@ -27,6 +29,7 @@ const WrapperHeader = styled.div `
 const Profile = props => {
 
     const { getUser, user } = props;
+    const [userInfo, setuserInfo] = useState(user||null);
 
     const logout=()=> {
         logoutService();
@@ -34,8 +37,12 @@ const Profile = props => {
     }
 
     useEffect(() => {
-        getUser()
+        getUser();
     }, []);
+
+    useEffect(() => {
+        setuserInfo(user||null)
+    }, [user]);
 
     
     return (
@@ -50,15 +57,34 @@ const Profile = props => {
             </div>
         </WrapperHeader>
         <CenterText>
-            <H1>Profile page</H1>
-            <ProfileForm 
-                fullName={user.fullName = 'hello'}
-                firstName={user.firstName}
-                sureName={user.sureName}
-                email={user.email}
-                title={user.title}
-                onChangevalue={e=>console.log(e)}
-            />
+
+            {props.user.data ?  
+                <ProfileBanner 
+                src={config.BaseURL+props.user.data.coverPic} 
+                width="50%"
+                bannerHeight={350}
+            /> : '' }
+
+            {props.user.loading? 'loading...':''}
+            {props.user.data ? ( 
+                <>
+                    {/* <img src={config.BaseURL+props.user.data.profilePic} />
+                    <img src={config.BaseURL+props.user.data.coverPic} /> */}
+                </>
+            ):'' }
+
+
+            {props.user.data ? (
+                <ProfileForm 
+                    fullName={props.user.data.fullName ||'full neme'}
+                    firstName={userInfo.firstName}
+                    sureName={userInfo.sureName}
+                    email={userInfo.email}
+                    title={userInfo.title}
+                    onChangevalue={e=>console.log(e)}
+                />
+
+            ):'No user data '}
         </CenterText>
         </>
     );

@@ -15,7 +15,6 @@ const config = {
     }
 }
 export const getUser = async user => {
-    debugger;
     // return (axios.post(API_BASE_URL+'/Login', user, { headers: { 'Content-Type': 'application/js on' }}))
     return axios.get(API_BASE_URL+'UserProfile/getProfileData/b2227c16-0a50-41d5-8f60-a31dd3962170/true', config)
 }
