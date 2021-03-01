@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 import { H1 } from '../../components/atoms/Headings';
+import { BannerContentWrap, BannerProfileName } from '../../components/molecules/ProfileBanner/partial';
 import ProfileBanner from '../../components/molecules/ProfileBanner/ProfileBanner';
 import ProfileForm from '../../components/molecules/ProfileForm/ProfileForm';
 import ProfilePicture from '../../components/molecules/ProfilePicture/ProfilePicture';
@@ -71,6 +72,11 @@ const Profile = props => {
                     alt="profile pic"
                     enableUpload={true}
                 />
+
+                <BannerContentWrap>
+                    <BannerProfileName>{props.user.data ?props.user.data.fullName : 'No Name'}</BannerProfileName>
+                    <em className="text-muted">{props.user.data ?props.user.data.title:''}</em>
+                </BannerContentWrap>
 
             </ProfileBanner>
 

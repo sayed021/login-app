@@ -73,9 +73,26 @@ export const CoverImageFooter = styled.div `
     width: 100%;
     height: 68px;
     padding: 10px 50px;
-    background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.6));
+    background-image: linear-gradient(rgba(0,0,0,0),rgb(0 0 0 / 0.17));
     z-index: 2;
     display: flex;
     justify-content: space-between;
     align-items: center;
 `;
+
+
+
+// banner title & content
+
+export const BannerContentWrap = styled.div`
+    padding: 35px 10px  10px 10px;
+    text-align: center;
+`
+
+export const BannerProfileName = styled.h2`
+    font-size: 40px;
+    font-width: 700;
+    color: #222;
+    margin: 0;
+    line-height: 40px;
+`
