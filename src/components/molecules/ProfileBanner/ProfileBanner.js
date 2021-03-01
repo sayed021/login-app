@@ -6,7 +6,8 @@ const ProfileBanner = props => {
         // banner image poperty
         src, alt, width, height, ariaLabel, 
 
-        bannerHeight
+        bannerHeight,
+        children
 
     } = props;
 
@@ -38,6 +39,7 @@ const ProfileBanner = props => {
                     </div>
                 </CoverImageFooter>
             </ProfileBannerCenter>
+            {children}
         </ProfileBannerWrap>
     );
 }

@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { H1 } from '../../components/atoms/Headings';
 import ProfileBanner from '../../components/molecules/ProfileBanner/ProfileBanner';
 import ProfileForm from '../../components/molecules/ProfileForm/ProfileForm';
+import ProfilePicture from '../../components/molecules/ProfilePicture/ProfilePicture';
 import { setLoginToken, TOKEN_KEY, logoutService } from '../../services/auth';
 import { BaseURL, config } from '../../services/config';
 import { logoutServics } from '../../services/cookieService';
@@ -37,7 +38,7 @@ const Profile = props => {
     }
 
     useEffect(() => {
-        getUser();
+            getUser();
     }, []);
 
     useEffect(() => {
@@ -58,23 +59,24 @@ const Profile = props => {
         </WrapperHeader>
         <CenterText>
 
-            {props.user.data ?  
-                <ProfileBanner 
-                src={config.BaseURL+props.user.data.coverPic} 
+            
+            <ProfileBanner 
+                src={props.user.data ? config.BaseURL+props.user.data.coverPic : ''} 
                 width="50%"
                 bannerHeight={350}
-            /> : '' }
+            >
+                <ProfilePicture
+                    radiusSize={200}
+                    src={props.user.data ?config.BaseURL+props.user.data.profilePic:''}
+                    alt="profile pic"
+                    enableUpload={true}
+                />
+
+            </ProfileBanner>
 
             {props.user.loading? 'loading...':''}
-            {props.user.data ? ( 
-                <>
-                    {/* <img src={config.BaseURL+props.user.data.profilePic} />
-                    <img src={config.BaseURL+props.user.data.coverPic} /> */}
-                </>
-            ):'' }
 
-
-            {props.user.data ? (
+            {/* {props.user.data ? (
                 <ProfileForm 
                     fullName={props.user.data.fullName ||'full neme'}
                     firstName={userInfo.firstName}
@@ -84,7 +86,7 @@ const Profile = props => {
                     onChangevalue={e=>console.log(e)}
                 />
 
-            ):'No user data '}
+            ):'No user data '} */}
         </CenterText>
         </>
     );
