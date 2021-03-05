@@ -9,6 +9,7 @@ import ProfilePicture from '../../components/molecules/ProfilePicture/ProfilePic
 import { setLoginToken, TOKEN_KEY, logoutService } from '../../services/auth';
 import { BaseURL, config } from '../../services/config';
 import { logoutServics } from '../../services/cookieService';
+import { getFriendLists } from '../../Store/Actions/friendListAction';
 
 
 
@@ -30,7 +31,7 @@ const WrapperHeader = styled.div `
 
 const Profile = props => {
 
-    const { getUser, user } = props;
+    const { getUser, user, getFriendLists, friends } = props;
     const [userInfo, setuserInfo] = useState(user||null);
 
     const logout=()=> {
@@ -39,7 +40,8 @@ const Profile = props => {
     }
 
     useEffect(() => {
-            getUser();
+        getUser();
+        getFriendLists();
     }, []);
 
     useEffect(() => {
@@ -82,17 +84,25 @@ const Profile = props => {
 
             {props.user.loading? 'loading...':''}
 
-            {/* {props.user.data ? (
-                <ProfileForm 
-                    fullName={props.user.data.fullName ||'full neme'}
-                    firstName={userInfo.firstName}
-                    sureName={userInfo.sureName}
-                    email={userInfo.email}
-                    title={userInfo.title}
-                    onChangevalue={e=>console.log(e)}
-                />
+            <h2>Friend list</h2>
 
-            ):'No user data '} */}
+            {
+                friends.loading ? (
+                    'friends loading...'
+                ):(
+                    !friends.error ? (
+                        (friends.data||[]).map(friend=>(
+                            <div>
+                                <img src={friend.profilePicUrl} />
+                                <h4>{friend.name}</h4>
+                                <hr />
+                            </div>
+                        ))
+                    ):'loading error'
+                )
+            }
+
+            
         </CenterText>
         </>
     );
@@ -102,12 +112,14 @@ const Profile = props => {
 const mapStateToProps = (state) => {
     return {
         user: state.user,
+        friends: state.friends
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        getUser:() => dispatch(getUser())
+        getUser:() => dispatch(getUser()),
+        getFriendLists: ()=> dispatch(getFriendLists())
     }
 }
 

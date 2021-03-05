@@ -1,4 +1,5 @@
 import { combineReducers } from "redux";
+import { FriendsListReducer } from "./friendsListReducer";
 
 import { LoginReducer } from "./loginReducer";
 import themeReducer from "./themeReducer";
@@ -10,6 +11,7 @@ export default function createReducer(injectedReducers = {}) {
         login: LoginReducer,
         user: userReducer,
         theme: themeReducer,
+        friends: FriendsListReducer,
         ...injectedReducers,
     });
 
