@@ -2,13 +2,14 @@ import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 import { H1 } from '../../components/atoms/Headings';
+import BasicCard from '../../components/molecules/basicCard';
+import FriendCard, { FriendCardHeader } from '../../components/molecules/friendCard';
+import { Col4, Container, Row } from '../../components/molecules/grid';
 import { BannerContentWrap, BannerProfileName } from '../../components/molecules/ProfileBanner/partial';
 import ProfileBanner from '../../components/molecules/ProfileBanner/ProfileBanner';
-import ProfileForm from '../../components/molecules/ProfileForm/ProfileForm';
 import ProfilePicture from '../../components/molecules/ProfilePicture/ProfilePicture';
-import { setLoginToken, TOKEN_KEY, logoutService } from '../../services/auth';
-import { BaseURL, config } from '../../services/config';
-import { logoutServics } from '../../services/cookieService';
+import { logoutService } from '../../services/auth';
+import { config } from '../../services/config';
 import { getFriendLists } from '../../Store/Actions/friendListAction';
 
 
@@ -84,23 +85,32 @@ const Profile = props => {
 
             {props.user.loading? 'loading...':''}
 
-            <h2>Friend list</h2>
+            <br />
 
-            {
-                friends.loading ? (
-                    'friends loading...'
-                ):(
-                    !friends.error ? (
-                        (friends.data||[]).map(friend=>(
-                            <div>
-                                <img src={friend.profilePicUrl} />
-                                <h4>{friend.name}</h4>
-                                <hr />
-                            </div>
-                        ))
-                    ):'loading error'
-                )
-            }
+            <Container>
+                <Row>
+                    <Col4>
+                        <BasicCard>
+                            {
+                                friends.loading ? (
+                                    'friends loading...'
+                                ):(
+                                    !friends.error ? <FriendCard
+                                        title="Friends"
+                                        linkLabel="All friend link"
+                                        priendPageLink="#"
+                                        totalFriends={(friends.data||[]).length||0}
+                                        friends={(friends.data||[]).slice(0,6)}
+                                    />
+                                    : 'loading error'
+                                )
+                            }
+                        </BasicCard>
+                    </Col4>
+                </Row>
+            </Container>
+
+            
 
             
         </CenterText>

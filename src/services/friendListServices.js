@@ -1,14 +1,14 @@
-import { config } from './config';
-import { getCookie } from './cookieService';
-const axios = require('axios');
+// import { config } from './config';
+// import { getCookie } from './cookieService';
+// const axios = require('axios');
 
 export const getFriendList = () => {
-    const headerConfig = {
-        headers: { 
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${getCookie(config.TOKEN_KEY)}`
-        }
-    }
+    // const headerConfig = {
+    //     headers: { 
+    //         'Content-Type': 'application/json',
+    //         'Authorization': `Bearer ${getCookie(config.TOKEN_KEY)}`
+    //     }
+    // }
 
     return {
         data: [
@@ -26,7 +26,7 @@ export const getFriendList = () => {
         },
         {
             id:3,
-            name: 'Friend|3',
+            name: 'This is long name',
             profileLink: '#',
             profilePicUrl: 'https://via.placeholder.com/100'
         },

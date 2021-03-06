@@ -11,7 +11,7 @@ export const lightTheme = {
     whiteColor: '#ffffff',
     lightColor: '#e4e6eb',
     linkColor: '#0d6efd',
-    cardShadow: '#000000'
+    cardShadow: 'rgba(0, 0, 0, 0.2)'
 };
 
 export const darkTheme = {
